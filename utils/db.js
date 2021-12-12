@@ -1,5 +1,15 @@
-const {readFile, writeFile} = require('fs').promises; // bierzemy dwie metody zapis i odczyt pliku z modułu fs. wersja promisowa
-const {join} = require('path'); //bierzemy metodę join z modułu path
+const mysql = require('mysql2/promise');
+
+(async() => {
+
+    const pool = await  mysql.createPool({
+        host: 'localhost',
+        user: 'root',
+        database: 'todolist',
+        decimalNumbers: true,
+        namedPlaceholders: true,
+    });
+})();
 
 
 module.exports = {
